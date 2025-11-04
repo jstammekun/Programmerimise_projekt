@@ -2,19 +2,21 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
+# Loon listid võimalike numbrite jaoks igas veerus
 b_rida_valikud = list(range(1, 16))
 i_rida_valikud = list(range(16, 31))
 n_rida_valikud = list(range(31, 46))
 g_rida_valikud = list(range(46, 61))
 o_rida_valikud = list(range(61, 76))
 
+# Loon tühjad listid valitud numbrite jaoks igas veerus
 b_rida = []
 i_rida = []
 n_rida = []
 g_rida = []
 o_rida = []
 
-
+# Valin juhuslikud numbrid igasse veergu
 for i in range(6):
 
     suvaline_b = random.choice(b_rida_valikud)
@@ -53,6 +55,7 @@ for i in range(6):
         o_rida_valikud.remove(suvaline_o)
         i -= 1
 
+# Väljastan bingo kaardi
 print(" B | I | N | G | O ")
 print("---------------------")
 for i in range(5):
