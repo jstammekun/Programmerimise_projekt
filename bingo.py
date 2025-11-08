@@ -29,27 +29,22 @@ def loo_bingo_kaart():
         if suvaline_b not in b_rida:
             b_rida.append(suvaline_b)
             b_rida_valikud.remove(suvaline_b)
-            i -= 1
 
         if suvaline_i not in i_rida:
             i_rida.append(suvaline_i)
             i_rida_valikud.remove(suvaline_i)
-            i -= 1
 
         if suvaline_n not in n_rida:
             n_rida.append(suvaline_n)
             n_rida_valikud.remove(suvaline_n)
-            i -= 1
 
         if suvaline_g not in g_rida:
             g_rida.append(suvaline_g)
             g_rida_valikud.remove(suvaline_g)
-            i -= 1
 
         if suvaline_o not in o_rida:
             o_rida.append(suvaline_o)   
             o_rida_valikud.remove(suvaline_o)
-            i -= 1
             
     return b_rida, i_rida, n_rida, g_rida, o_rida
 b_rida, i_rida, n_rida, g_rida, o_rida = loo_bingo_kaart()
