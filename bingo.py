@@ -48,6 +48,7 @@ def loo_bingo_kaart():
             
     return b_rida, i_rida, n_rida, g_rida, o_rida
 
+
 # Loon GUI akna
 
 aken = tk.Tk()
@@ -61,8 +62,6 @@ pealkiri.pack(pady=10)
 
 kaart_frame = tk.Frame(aken, bg="lightblue", bd=2, relief="solid")
 kaart_frame.pack(pady=10)
-lugeja_frame = tk.Frame(aken, bd=2, relief="solid")
-lugeja_frame.pack(pady=10)
 
 veerud = ['B', 'I', 'N', 'G', 'O']
 
@@ -87,7 +86,5 @@ def kuva_bingo_kaart():
         o_silt = tk.Label(kaart_frame, text=str(o_rida[row]), font=("Arial", 16), bg="white", width=4, height=2, relief="solid", borderwidth=1)
         o_silt.grid(row=row+1, column=4, padx=5, pady=5)
         
-tk.Button(lugeja_frame, text="Uus kaart", command=kuva_bingo_kaart, font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
-tk.Button(lugeja_frame, text="Alusta mängu", command=kuva_bingo_kaart, font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
-tk.Entry(lugeja_frame, text="Mängijate arv", font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
+tk.Button(aken, text="Uus kaart", command=kuva_bingo_kaart, font=("Arial", 14), bg="red", fg="white").pack(pady=20)
 aken.mainloop()
