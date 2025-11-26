@@ -116,8 +116,28 @@ def kuva_bingo_kaart():
         g_silt.grid(row=row+1, column=3, padx=5, pady=5)
         o_silt = tk.Label(kaart_frame, text=str(o_rida[row]), font=("Arial", 16), bg="white", width=4, height=2, relief="solid", borderwidth=1)
         o_silt.grid(row=row+1, column=4, padx=5, pady=5)
-        
-tk.Button(lugeja_frame, text="Uus kaart", command=kuva_bingo_kaart, font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
-tk.Button(lugeja_frame, text="Alusta mängu", command=mängu_alustamine, font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
-tk.Entry(lugeja_frame, text="Mängijate arv", font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
+
+def entry_value():
+    global piirang
+    piirang = piirarv.get()
+    print(piirang)
+    return piirang
+
+
+sisesta = tk.Button(lugeja_frame, text="Sisesta mängijate arv", command=entry_value, font=("Arial", 14), bg="red", fg="white")
+sisesta.pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
+
+uus = tk.Button(lugeja_frame, text="Uus kaart", command=kuva_bingo_kaart, font=("Arial", 14), bg="red", fg="white")
+uus.pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
+
+start = tk.Button(lugeja_frame, text="Alusta mängu", command=mängu_alustamine, font=("Arial", 14), bg="red", fg="white")
+start.pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
+
+piirarv = tk.Entry(lugeja_frame, font=("Arial", 14), bg="white", fg="black", width=15)
+piirarv.pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
+piirarv.insert(0, "Mängijate arv")
+lugeja = 0
+
+
+
 aken.mainloop()
