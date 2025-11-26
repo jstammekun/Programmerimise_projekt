@@ -48,8 +48,38 @@ def loo_bingo_kaart():
             
     return b_rida, i_rida, n_rida, g_rida, o_rida
 
-# Loon GUI akna
+def mängu_alustamine():
+    global viimane_nr, numbrid
+    kaart_frame.destroy()
+    lugeja_frame.destroy()
+    
+    viimane_nr_frame = tk.Frame(aken, height=500, width=500, bg="lightblue", bd=2, relief="solid")
+    viimane_nr_frame.pack(pady=10)
+    
+    olnud_nr = tk.Frame(viimane_nr_frame, height=200, width= 250, bd=1, relief="solid", bg="lightblue")
+    olnud_nr.pack(pady=5)
 
+    numbrid = tk.Label(olnud_nr, text="", bg="lightblue")
+    numbrid.pack()
+
+    viimane_nr = tk.Label(viimane_nr_frame, text="Viimane loositud number:", bg="lightblue")
+    viimane_nr.pack(pady=20)
+
+    loosimine = tk.Button(viimane_nr_frame, text="Loosi number", command=numbri_loosimine, font=("Arial", 14), bg="red", fg="white")
+    loosimine.pack(pady=10)
+
+
+numbrid_valikus = list(range(1, 76))
+numbrid_loositud = []
+
+def numbri_loosimine():
+    suvaline_nr = random.choice(numbrid_valikus)
+    numbrid_valikus.remove(suvaline_nr)
+    numbrid_loositud.append(suvaline_nr)
+    viimane_nr.config(text=f"Viimane loositud number: {suvaline_nr}")
+    numbrid.config(text=f"Loositud numbrid: {', '.join(map(str, numbrid_loositud))}")
+
+# Loon GUI akna
 aken = tk.Tk()
 aken.title("Bingo Mäng")
 aken.geometry("500x500")
@@ -88,6 +118,6 @@ def kuva_bingo_kaart():
         o_silt.grid(row=row+1, column=4, padx=5, pady=5)
         
 tk.Button(lugeja_frame, text="Uus kaart", command=kuva_bingo_kaart, font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
-tk.Button(lugeja_frame, text="Alusta mängu", command=kuva_bingo_kaart, font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
+tk.Button(lugeja_frame, text="Alusta mängu", command=mängu_alustamine, font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
 tk.Entry(lugeja_frame, text="Mängijate arv", font=("Arial", 14), bg="red", fg="white").pack(pady=20, padx=10, side ="right", expand= True, fill= "both")
 aken.mainloop()
